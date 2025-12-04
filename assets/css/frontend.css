@@ -1,0 +1,24 @@
+.parishpress-events-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.parishpress-events-item {
+    margin-bottom: 1rem;
+}
+
+.pp-event-header {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.pp-event-start,
+.pp-event-end {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.pp-event-location {
+    font-size: 0.95em;
+}
