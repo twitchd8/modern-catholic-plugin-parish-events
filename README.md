@@ -1,8 +1,16 @@
+# 🕊️ ParishPress Project
+
+Part of the **ParishPress** suite — modern, modular WordPress tools for Catholic parish websites.
+
+---
+
 # ParishPress Events
 
 ![License: GPL-2.0-or-later](https://img.shields.io/badge/License-GPL--2.0--or--later-blue.svg)
+![WordPress: 6.5+](https://img.shields.io/badge/WordPress-6.5%2B-21759b.svg)
+![PHP: 7.4+](https://img.shields.io/badge/PHP-7.4%2B-777bbb.svg)
 
-ParishPress Events adds an **Events** custom post type for parish calendars. Capture start/end date-times and locations, then list upcoming events with a shortcode or block. Minimal styling keeps the output consistent with your theme.
+A simple, flexible WordPress plugin that adds an “Events” custom post type for parish calendars. Supports start/end date-times, event locations, and a shortcode for listing upcoming events inside any theme. Built to integrate seamlessly with modern block-based WordPress sites.
 
 ---
 
@@ -45,3 +53,19 @@ Add the **ParishPress Events** block in the editor to set the list length visual
 1. Upload or clone `parishpress-events` into `wp-content/plugins/`.
 2. Activate **ParishPress Events** from Plugins.
 3. Add Events (`pp_event`) with start/end times and a location, then place the shortcode or block where you want the list to appear.
+
+---
+
+## 📝 Changelog
+
+0.2.0
+
+- Initial commit.
+
+---
+
+## 🔑 License
+
+Licensed under the GPL-2.0-or-later license.
+
+---
