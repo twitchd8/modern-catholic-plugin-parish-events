@@ -50,7 +50,7 @@ Add the **Modern Catholic – Parish Events** block in the editor to set the lis
 
 ## Installation
 
-1. Upload or clone `modern-catholic-parish-events` into `wp-content/plugins/`.
+1. Upload or clone `modern-catholic-plugin-parish-events` into `wp-content/plugins/`.
 2. Activate **Modern Catholic – Parish Events** from Plugins.
 3. Add Events (`mc_event`) with start/end times and a location, then place the shortcode or block where you want the list to appear.
 
