@@ -18,7 +18,7 @@ function parishpress_events_shortcode( $atts ) {
 
     $q = new WP_Query(
         array(
-            'post_type'      => 'pp_event',
+            'post_type'      => 'mc_event',
             'posts_per_page' => (int) $atts['limit'],
             'meta_key'       => '_pp_event_start',
             'orderby'        => 'meta_value',

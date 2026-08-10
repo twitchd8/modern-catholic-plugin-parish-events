@@ -9,7 +9,7 @@ function parishpress_events_add_meta_box() {
         'parishpress_event_details',
         __( 'Event Details', 'parishpress-events' ),
         'parishpress_events_render_meta_box',
-        'pp_event',
+        'mc_event',
         'normal',
         'default'
     );
@@ -65,4 +65,4 @@ function parishpress_events_save_meta( $post_id ) {
         }
     }
 }
-add_action( 'save_post_pp_event', 'parishpress_events_save_meta' );
+add_action( 'save_post_mc_event', 'parishpress_events_save_meta' );
