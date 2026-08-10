@@ -16,7 +16,7 @@ A simple, flexible WordPress plugin that adds an “Events” custom post type f
 
 ## Features
 
-- Custom post type `pp_event` with an archive at `/events` (`show_in_rest: true`)
+- Standardized custom post type `mc_event` with an archive at `/events` (`show_in_rest: true`)
 - Meta box fields for start date/time (`_pp_event_start`), end date/time (`_pp_event_end`), and location (`_pp_event_location`)
 - Shortcode `[parishpress_events]` lists events ordered by start date ascending; accepts `limit` to control how many appear
 - Block: **Modern Catholic – Parish Events** (`parishpress/events`) exposes the `limit` setting in the editor and renders through the shortcode
@@ -52,11 +52,15 @@ Add the **Modern Catholic – Parish Events** block in the editor to set the lis
 
 1. Upload or clone `modern-catholic-parish-events` into `wp-content/plugins/`.
 2. Activate **Modern Catholic – Parish Events** from Plugins.
-3. Add Events (`pp_event`) with start/end times and a location, then place the shortcode or block where you want the list to appear.
+3. Add Events (`mc_event`) with start/end times and a location, then place the shortcode or block where you want the list to appear.
 
 ---
 
 ## 📝 Changelog
+
+0.2.1
+
+- Standardize the post type key as `mc_event` and migrate existing `pp_event` posts.
 
 0.2.0
 
@@ -70,9 +74,9 @@ Licensed under the GNU General Public License version 3.0 only (`GPL-3.0-only`).
 
 ## Compatibility identifiers
 
-The `pp_event` post type, `_pp_event_*` metadata, `[parishpress_events]`
-shortcode, `parishpress/events` block name, and `parishpress-events` text domain
-are retained so existing WordPress content remains compatible. New public
-branding uses Modern Catholic.
+Existing `pp_event` posts are migrated to the standardized `mc_event` post
+type. The `_pp_event_*` metadata, `[parishpress_events]` shortcode,
+`parishpress/events` block name, and `parishpress-events` text domain remain
+stable so existing WordPress content remains compatible.
 
 ---

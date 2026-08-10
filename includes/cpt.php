@@ -23,6 +23,6 @@ function parishpress_events_register_cpt() {
         'menu_icon'    => 'dashicons-calendar-alt',
     );
 
-    register_post_type( 'pp_event', $args );
+    register_post_type( 'mc_event', $args );
 }
 add_action( 'init', 'parishpress_events_register_cpt' );
