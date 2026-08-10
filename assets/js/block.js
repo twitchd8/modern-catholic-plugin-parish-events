@@ -6,7 +6,7 @@
     const { Fragment, createElement: el } = wp.element;
 
     registerBlockType( 'parishpress/events', {
-        title: __( 'ParishPress Events', 'parishpress-events' ),
+        title: __( 'Modern Catholic – Parish Events', 'parishpress-events' ),
         icon: 'calendar',
         category: 'widgets',
         attributes: {
@@ -37,7 +37,7 @@
                 el(
                     'div',
                     { className: 'parishpress-block-placeholder' },
-                    el( 'strong', null, __( 'ParishPress Events', 'parishpress-events' ) ),
+                    el( 'strong', null, __( 'Modern Catholic – Parish Events', 'parishpress-events' ) ),
                     el( 'div', null, __( 'Displays upcoming events.', 'parishpress-events' ) ),
                     el( 'div', null, __( 'Limit', 'parishpress-events' ), ': ', limitValue )
                 )

@@ -1,12 +1,12 @@
-# 🕊️ ParishPress Project
+# Modern Catholic Plugin Suite
 
-Part of the **ParishPress** suite — modern, modular WordPress tools for Catholic parish websites.
+Part of **Modern Catholic** — modular WordPress tools for Catholic parish websites.
 
 ---
 
-# ParishPress Events
+# Modern Catholic – Parish Events
 
-![License: GPL-2.0-or-later](https://img.shields.io/badge/License-GPL--2.0--or--later-blue.svg)
+![License: GPL-3.0-only](https://img.shields.io/badge/License-GPL--3.0--only-blue.svg)
 ![WordPress: 6.5+](https://img.shields.io/badge/WordPress-6.5%2B-21759b.svg)
 ![PHP: 7.4+](https://img.shields.io/badge/PHP-7.4%2B-777bbb.svg)
 
@@ -19,7 +19,7 @@ A simple, flexible WordPress plugin that adds an “Events” custom post type f
 - Custom post type `pp_event` with an archive at `/events` (`show_in_rest: true`)
 - Meta box fields for start date/time (`_pp_event_start`), end date/time (`_pp_event_end`), and location (`_pp_event_location`)
 - Shortcode `[parishpress_events]` lists events ordered by start date ascending; accepts `limit` to control how many appear
-- Block: **ParishPress Events** (`parishpress/events`) exposes the `limit` setting in the editor and renders through the shortcode
+- Block: **Modern Catholic – Parish Events** (`parishpress/events`) exposes the `limit` setting in the editor and renders through the shortcode
 - Minimal front-end CSS enqueued only on the public site; inherits your theme’s typography/layout
 
 ---
@@ -44,14 +44,14 @@ Limit how many events display:
 
 ## Block
 
-Add the **ParishPress Events** block in the editor to set the list length visually. The block uses the shortcode renderer for consistent output.
+Add the **Modern Catholic – Parish Events** block in the editor to set the list length visually. The block uses the shortcode renderer for consistent output.
 
 ---
 
 ## Installation
 
-1. Upload or clone `parishpress-events` into `wp-content/plugins/`.
-2. Activate **ParishPress Events** from Plugins.
+1. Upload or clone `modern-catholic-parish-events` into `wp-content/plugins/`.
+2. Activate **Modern Catholic – Parish Events** from Plugins.
 3. Add Events (`pp_event`) with start/end times and a location, then place the shortcode or block where you want the list to appear.
 
 ---
@@ -66,6 +66,13 @@ Add the **ParishPress Events** block in the editor to set the list length visual
 
 ## 🔑 License
 
-Licensed under the GPL-2.0-or-later license.
+Licensed under the GNU General Public License version 3.0 only (`GPL-3.0-only`).
+
+## Compatibility identifiers
+
+The `pp_event` post type, `_pp_event_*` metadata, `[parishpress_events]`
+shortcode, `parishpress/events` block name, and `parishpress-events` text domain
+are retained so existing WordPress content remains compatible. New public
+branding uses Modern Catholic.
 
 ---
