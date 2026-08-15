@@ -111,7 +111,7 @@ function modern_catholic_events_render_list_occurrence( $occurrence ) {
         </time>
         <div class="modern-catholic-events-list__details">
             <div class="modern-catholic-events-list__heading">
-                <h2 class="modern-catholic-events-list__title"><a href="<?php echo esc_url( $occurrence['permalink'] ); ?>"><?php echo esc_html( $occurrence['title'] ); ?></a></h2>
+                <h3 class="modern-catholic-events-list__title"><a href="<?php echo esc_url( $occurrence['permalink'] ); ?>"><?php echo esc_html( $occurrence['title'] ); ?></a></h3>
                 <?php if ( 'scheduled' !== $status ) : ?><span class="modern-catholic-events-status"><?php echo esc_html( ucfirst( $status ) ); ?></span><?php endif; ?>
             </div>
             <p class="modern-catholic-events-list__meta">
@@ -132,9 +132,21 @@ function modern_catholic_events_render_list( $occurrences ) {
     if ( ! $occurrences ) {
         echo '<p class="modern-catholic-events-empty">' . esc_html__( 'There are no events in this date range.', 'modern-catholic-parish-events' ) . '</p>';
     } else {
+        $current_year = '';
         foreach ( $occurrences as $occurrence ) {
+            $year = $occurrence['start']->format( 'Y' );
+            if ( $year !== $current_year ) {
+                if ( $current_year ) {
+                    echo '</section>';
+                }
+                $current_year = $year;
+                $year_id      = wp_unique_id( 'modern-catholic-events-year-' . $year . '-' );
+                echo '<section class="modern-catholic-events-list__year-group" aria-labelledby="' . esc_attr( $year_id ) . '">';
+                echo '<h2 id="' . esc_attr( $year_id ) . '" class="modern-catholic-events-list__year">' . esc_html( wp_date( 'Y', $occurrence['start']->getTimestamp(), wp_timezone() ) ) . '</h2>';
+            }
             modern_catholic_events_render_list_occurrence( $occurrence );
         }
+        echo '</section>';
     }
     echo '</section>';
 }
@@ -169,9 +181,9 @@ function modern_catholic_events_render_calendar( $month_start, $occurrences, $ca
     ?>
     <section class="modern-catholic-events-calendar" aria-labelledby="modern-catholic-events-calendar-title">
         <nav class="modern-catholic-events-calendar__navigation" aria-label="<?php esc_attr_e( 'Calendar month navigation', 'modern-catholic-parish-events' ); ?>">
-            <a class="modern-catholic-events-calendar__month-link" href="<?php echo esc_url( $previous_url ); ?>" rel="prev"><span aria-hidden="true">&larr;</span> <?php echo esc_html( wp_date( 'F', $month_start->modify( '-1 month' )->getTimestamp(), wp_timezone() ) ); ?></a>
-            <h2 id="modern-catholic-events-calendar-title"><?php echo esc_html( wp_date( 'F Y', $month_start->getTimestamp(), wp_timezone() ) ); ?></h2>
-            <a class="modern-catholic-events-calendar__month-link" href="<?php echo esc_url( $next_url ); ?>" rel="next"><?php echo esc_html( wp_date( 'F', $month_start->modify( '+1 month' )->getTimestamp(), wp_timezone() ) ); ?> <span aria-hidden="true">&rarr;</span></a>
+            <a class="modern-catholic-events-calendar__month-link" href="<?php echo esc_url( $previous_url ); ?>" rel="prev"><span aria-hidden="true">&larr;</span> <?php echo esc_html( wp_date( 'F Y', $month_start->modify( '-1 month' )->getTimestamp(), wp_timezone() ) ); ?></a>
+            <h2 id="modern-catholic-events-calendar-title"><span class="modern-catholic-events-calendar__heading-month"><?php echo esc_html( wp_date( 'F', $month_start->getTimestamp(), wp_timezone() ) ); ?></span> <span class="modern-catholic-events-calendar__heading-year"><?php echo esc_html( wp_date( 'Y', $month_start->getTimestamp(), wp_timezone() ) ); ?></span></h2>
+            <a class="modern-catholic-events-calendar__month-link" href="<?php echo esc_url( $next_url ); ?>" rel="next"><?php echo esc_html( wp_date( 'F Y', $month_start->modify( '+1 month' )->getTimestamp(), wp_timezone() ) ); ?> <span aria-hidden="true">&rarr;</span></a>
         </nav>
         <div class="modern-catholic-events-calendar__scroll" tabindex="0" role="region" aria-label="<?php echo esc_attr( wp_date( 'F Y', $month_start->getTimestamp(), wp_timezone() ) ); ?>">
             <table class="modern-catholic-events-calendar__table">

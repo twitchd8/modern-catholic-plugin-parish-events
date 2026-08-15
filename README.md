@@ -111,6 +111,12 @@ The occurrence service uses a global data version in cache keys. Event, override
 
 ## Changelog
 
+### 1.0.1
+
+- Group list-view occurrences into accessible year sections, beginning with the first displayed year and adding a primary-color divider whenever the list crosses into another year.
+- Give the monthly calendar separate month and year styling and include years in previous/next month navigation, including across year boundaries.
+- Add regression coverage for list year transitions and calendar year labels.
+
 ### 1.0.0
 
 - First production-ready release of Modern Catholic – Parish Events.
