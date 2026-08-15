@@ -64,8 +64,18 @@
     padding: clamp(1.25rem, 3vw, 2rem) 0;
 }
 
-.modern-catholic-events-list__event:first-of-type {
-    padding-top: 0;
+.modern-catholic-events-list__year-group + .modern-catholic-events-list__year-group {
+    margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.modern-catholic-events-list__year {
+    background: var(--modern-catholic-events-accent, var(--wp--preset--color--primary, #7a2038));
+    color: var(--wp--preset--color--on-primary, #fffaf0);
+    font-size: clamp(1.35rem, 3vw, 2rem);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin: 0;
+    padding: 0.75rem clamp(1rem, 3vw, 1.5rem);
 }
 
 .modern-catholic-events-list__date {
@@ -147,9 +157,20 @@
 }
 
 .modern-catholic-events-calendar__navigation h2 {
+    align-items: baseline;
+    display: flex;
     font-size: clamp(1.5rem, 4vw, 2.5rem);
+    gap: 0.45rem;
+    justify-content: center;
     margin: 0;
     text-align: center;
+}
+
+.modern-catholic-events-calendar__heading-year {
+    color: var(--modern-catholic-events-accent, var(--wp--preset--color--primary, #7a2038));
+    font-size: 0.72em;
+    font-weight: 750;
+    letter-spacing: 0.04em;
 }
 
 .modern-catholic-events-calendar__month-link {

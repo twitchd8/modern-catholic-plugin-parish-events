@@ -132,6 +132,14 @@ try {
     $yearly = modern_catholic_events_test_create( 'Yearly recurrence', array_merge( $base_meta, array( 'start_date' => '2026-09-01', 'end_date' => '2026-09-01', 'recurrence_frequency' => 'yearly', 'recurrence_end_type' => 'count', 'recurrence_count' => 2, 'series_uid' => wp_generate_uuid4() ) ) );
     $items = modern_catholic_events_test_for_series( modern_catholic_events_test_range( '2026-01-01', '2027-12-31' ), $yearly );
     modern_catholic_events_test_assert( 2 === count( $items ) && '2027-09-01' === $items[1]['start']->format( 'Y-m-d' ), 'yearly recurrence' );
+    ob_start();
+    modern_catholic_events_render_list( $items );
+    $year_list_markup = ob_get_clean();
+    modern_catholic_events_test_assert( 2 === substr_count( $year_list_markup, 'modern-catholic-events-list__year"' ) && strpos( $year_list_markup, '>2026</h2>' ) < strpos( $year_list_markup, 'Yearly recurrence' ) && false !== strpos( $year_list_markup, '>2027</h2>' ), 'list starts with the current result year and adds a divider at the next year' );
+    ob_start();
+    modern_catholic_events_render_calendar( new DateTimeImmutable( '2026-12-01', wp_timezone() ), array() );
+    $calendar_year_markup = ob_get_clean();
+    modern_catholic_events_test_assert( false !== strpos( $calendar_year_markup, 'modern-catholic-events-calendar__heading-month">December</span>' ) && false !== strpos( $calendar_year_markup, 'modern-catholic-events-calendar__heading-year">2026</span>' ) && false !== strpos( $calendar_year_markup, 'January 2027' ), 'calendar heading and cross-year navigation display the year' );
 
     $finite_date = modern_catholic_events_test_create( 'Finite by date', array_merge( $base_meta, array( 'recurrence_frequency' => 'daily', 'recurrence_end_type' => 'date', 'recurrence_end_date' => '2026-09-03', 'series_uid' => wp_generate_uuid4() ) ) );
     $items = modern_catholic_events_test_for_series( modern_catholic_events_test_range( '2026-09-01', '2026-09-10' ), $finite_date );
