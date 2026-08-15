@@ -5,67 +5,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Shortcode: [parishpress_events limit="5"]
+ * Renders [modern_catholic_events] through the central occurrence service.
+ *
+ * @param array $attributes Shortcode attributes.
+ * @return string
  */
-function parishpress_events_shortcode( $atts ) {
-    $atts = shortcode_atts(
+function modern_catholic_events_shortcode( $attributes ) {
+    $attributes = shortcode_atts(
         array(
-            'limit' => 5,
+            'limit'    => 5,
+            'start'    => 'today',
+            'end'      => '+3 months',
+            'view'     => 'list',
+            'category' => '',
         ),
-        $atts,
-        'parishpress_events'
+        $attributes,
+        'modern_catholic_events'
     );
 
-    $q = new WP_Query(
+    return modern_catholic_events_render_collection(
         array(
-            'post_type'      => 'mc_event',
-            'posts_per_page' => (int) $atts['limit'],
-            'meta_key'       => '_pp_event_start',
-            'orderby'        => 'meta_value',
-            'order'          => 'ASC',
-            'meta_query'     => array(
-                array(
-                    'key'     => '_pp_event_start',
-                    'compare' => 'EXISTS',
-                ),
-            ),
+            'limit'    => max( 1, min( 100, (int) $attributes['limit'] ) ),
+            'start'    => sanitize_text_field( $attributes['start'] ),
+            'end'      => sanitize_text_field( $attributes['end'] ),
+            'view'     => in_array( $attributes['view'], array( 'list', 'calendar' ), true ) ? $attributes['view'] : 'list',
+            'category' => sanitize_title( $attributes['category'] ),
+            'heading'  => false,
         )
     );
-
-    ob_start();
-
-    if ( $q->have_posts() ) {
-        echo '<ul class="parishpress-events-list">';
-        while ( $q->have_posts() ) {
-            $q->the_post();
-            $start = get_post_meta( get_the_ID(), '_pp_event_start', true );
-            $end   = get_post_meta( get_the_ID(), '_pp_event_end', true );
-            $loc   = get_post_meta( get_the_ID(), '_pp_event_location', true );
-
-            echo '<li class="parishpress-events-item">';
-            echo '<div class="pp-event-header">';
-            echo '<strong class="pp-event-title">' . esc_html( get_the_title() ) . '</strong>';
-            if ( $start ) {
-                echo ' <span class="pp-event-start">' . esc_html( $start ) . '</span>';
-            }
-            if ( $end ) {
-                echo ' – <span class="pp-event-end">' . esc_html( $end ) . '</span>';
-            }
-            echo '</div>';
-
-            if ( $loc ) {
-                echo '<div class="pp-event-location">' . esc_html( $loc ) . '</div>';
-            }
-
-            echo '</li>';
-        }
-        echo '</ul>';
-    } else {
-        esc_html_e( 'No upcoming events.', 'parishpress-events' );
-    }
-
-    wp_reset_postdata();
-
-    return ob_get_clean();
 }
-add_shortcode( 'parishpress_events', 'parishpress_events_shortcode' );
+add_shortcode( 'modern_catholic_events', 'modern_catholic_events_shortcode' );
