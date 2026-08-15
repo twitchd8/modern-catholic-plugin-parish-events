@@ -1,0 +1,75 @@
+.modern-catholic-events-fields {
+    display: grid;
+    gap: 0 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.modern-catholic-events-fields--location {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.modern-catholic-events-field label,
+.modern-catholic-events-field input,
+.modern-catholic-events-field select,
+.modern-catholic-events-field textarea {
+    display: block;
+    width: 100%;
+}
+
+.modern-catholic-events-field label {
+    margin-bottom: 0.35rem;
+}
+
+.modern-catholic-events-weekdays {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1rem;
+    margin: 1rem 0;
+}
+
+.modern-catholic-events-weekdays legend {
+    flex-basis: 100%;
+}
+
+.modern-catholic-events-places {
+    margin-top: 1rem;
+    max-width: 42rem;
+}
+
+#modern-catholic-event-formatted-address[readonly] {
+    background: #f6f7f7;
+    color: #50575e;
+}
+
+[data-modern-catholic-events-monthly-section] > .modern-catholic-events-field,
+[data-modern-catholic-events-ending-section] > .modern-catholic-events-field {
+    margin: 0;
+}
+
+.modern-catholic-events-recurrence-advanced {
+    border-top: 1px solid #dcdcde;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+}
+
+.modern-catholic-events-recurrence-advanced summary {
+    cursor: pointer;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.modern-catholic-events-recurrence-advanced[open] summary {
+    margin-bottom: 0.5rem;
+}
+
+.modern-catholic-events-block-preview {
+    border: 1px solid #949494;
+    padding: 1.25rem;
+}
+
+@media (max-width: 782px) {
+    .modern-catholic-events-fields,
+    .modern-catholic-events-fields--location {
+        grid-template-columns: 1fr;
+    }
+}
