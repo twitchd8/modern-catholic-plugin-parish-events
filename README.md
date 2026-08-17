@@ -1,4 +1,14 @@
+# Modern Catholic Plugin Suite
+
+Part of **Modern Catholic** — modular WordPress tools for Catholic parish websites.
+
+---
+
 # Modern Catholic – Parish Events
+
+![License: GPL-3.0-only](https://img.shields.io/badge/License-GPL--3.0--only-blue.svg)
+![WordPress: 6.7+](https://img.shields.io/badge/WordPress-6.7%2B-21759b.svg)
+![PHP: 7.4+](https://img.shields.io/badge/PHP-7.4%2B-777bbb.svg)
 
 Native WordPress event publishing for Modern Catholic websites. The plugin provides recurring series, linked occurrence overrides, Event Categories, list and calendar views, public calendar subscriptions, and occurrence-level discovery without using an authoritative custom table.
 
@@ -110,6 +120,10 @@ The occurrence service uses a global data version in cache keys. Event, override
 - No credentials are stored in source or included in release packages.
 
 ## Changelog
+
+### 1.0.2
+
+- Standardize the GitHub README with Modern Catholic suite branding, compatibility badges, and GPL-3.0-only licensing.
 
 ### 1.0.1
 
