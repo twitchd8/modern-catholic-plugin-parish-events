@@ -3,7 +3,7 @@
  * Plugin Name: Modern Catholic – Parish Events
  * Plugin URI: https://github.com/twitchd8/modern-catholic-plugin-parish-events
  * Description: Recurring parish events, accessible calendars, subscriptions, and occurrence-level discovery.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Requires at least: 6.7
  * Requires PHP: 7.4
  * Author: Andrew Schmitt
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'MODERN_CATHOLIC_EVENTS_VERSION', '1.0.1' );
+define( 'MODERN_CATHOLIC_EVENTS_VERSION', '1.0.2' );
 define( 'MODERN_CATHOLIC_EVENTS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'MODERN_CATHOLIC_EVENTS_URL', plugin_dir_url( __FILE__ ) );
 define( 'MODERN_CATHOLIC_EVENTS_CACHE_VERSION_OPTION', 'modern_catholic_events_cache_version' );
