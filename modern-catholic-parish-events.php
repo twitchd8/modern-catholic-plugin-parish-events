@@ -6,7 +6,7 @@
  * Version: 1.0.2
  * Requires at least: 6.7
  * Requires PHP: 7.4
- * Author: Andrew Schmitt
+ * Author: Andrew T. Schmitt
  * License: GPL-3.0-only
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: modern-catholic-parish-events
